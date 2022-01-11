@@ -9,7 +9,7 @@
             <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
             <a-entity src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 9; height: 0.2; depth: 6"></a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
+        <a-entity arjs='sourceType: webcam; sourceWidth:1920; sourceHeight:1080; displayWidth: 1920; displayHeight: 1080' position="0 0 0" look-controls="enabled: false" camera arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5' rotation-reader></a-entity>
         </a-scene>
     </body>
 </html>
