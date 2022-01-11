@@ -8,12 +8,13 @@
 </head>
 
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets_low.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;detectionMode: mono'>
+    <a-scene vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;detectionMode: mono'>
       <a-marker type='barcode' value='6'>
         <a-entity src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
       </a-marker>
       
       <a-entity camera></a-entity>
+      <!-- <a-scene mindar-image="imageTargetSrc: targets_low.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;detectionMode: mono'></a-scene> -->
       <!-- <a-entity mindar-image-target="targetIndex: 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity> -->
       
       <!-- <a-entity id="nyancat" geometry="primitive:box" position="1.2 1.5 1.5" material="shader:gif;src:url(Assets\image.png);transparent:true;opacity:.4;" gif=""></a-entity> -->
