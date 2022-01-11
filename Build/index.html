@@ -1,33 +1,28 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WebGL Test AR</title>
-    <script src="js/lib/aframe.min.js"></script>
-    <script src="js/lib/aframe-ar.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script src="js/app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+</head>
 
-  </head>
-
-  <body style="margin: 0px; overflow: hidden;">
-    <a-scene embedded arjs vr-mode-ui="enabled: false" copycanvas>
-      <div id="unityContainer" style="z-index: 2" ></div>
-      <!-- <a-marker preset="hiro"> <a-box></a-box> </a-marker> -->
-      <!-- <a-marker type="pattern" url="data/markers/pattern-arjs.patt"><a-box></a-box></a-marker> -->
-      <!-- <a-marker type="pattern" url="data/markers/test.patt" markercontroller="name : hiro"></a-marker> -->
-
-			<a-marker type="pattern" url="data/markers\Hiro.patt" markercontroller="name : Hiro"></a-marker>
-			<a-marker type="pattern" url="data/markers\Lamose.patt" markercontroller="name : Lamose"></a-marker>
-			<a-marker type="pattern" url="data/markers\Nutty.patt" markercontroller="name : Nutty"></a-marker>
-			<a-marker type="pattern" url="data/markers\NuttyCardboard.patt" markercontroller="name : NuttyCardboard"></a-marker>
-			<a-marker type="pattern" url="data/markers\QR.patt" markercontroller="name : QR"></a-marker>
-			<a-marker type="pattern" url="data/markers\QR1.patt" markercontroller="name : QR1"></a-marker>
-			<a-marker type="pattern" url="data/markers\QR2.patt" markercontroller="name : QR2"></a-marker>
-			<a-marker type="pattern" url="data/markers\QR3.patt" markercontroller="name : QR3"></a-marker>
-
-      <a-entity camera cameratransform></a-entity>
+  <body>
+    <a-scene vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;detectionMode: mono'>
+      <a-marker type='barcode' value='6'>
+        <a-entity src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
+      </a-marker>
+      
+      <a-entity camera></a-entity>
+      <!-- <a-scene mindar-image="imageTargetSrc: targets_low.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;detectionMode: mono'></a-scene> -->
+      <!-- <a-entity mindar-image-target="targetIndex: 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity> -->
+      
+      <!-- <a-entity id="nyancat" geometry="primitive:box" position="1.2 1.5 1.5" material="shader:gif;src:url(Assets\image.png);transparent:true;opacity:.4;" gif=""></a-entity> -->
+      <!-- <a-entity id="nyancat" geometry="primitive:box" position="1.2 1.5 1.5" material="shader:gif;src:url(Assets\image.png);transparent:true;opacity:.4;" gif=""></a-entity> -->
+      <!-- <a-entity mindar-image-target="targetIndex: 0" geometry="primitive:plane;width:1.5;height:1.5;" material="shader:gif;src:url(Assets\motiontest-0-Enhanced-Animated.gif);"></a-entity> -->
+      <!-- <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane src="#giftest" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> detached
+      </a-entity> -->
     </a-scene>
   </body>
 </html>
