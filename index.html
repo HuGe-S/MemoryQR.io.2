@@ -64,7 +64,7 @@
   </head>  
   <body>
     </div>
-     <video></video>
+     <video id='#penguin-sledding'></video>
      <a-scene
         renderer="colorManagement: true"
      >
@@ -105,5 +105,9 @@ navigator.mediaDevices.getUserMedia(constraints)
   };
 })
 .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
+window.addEventListener('click', function () {
+      var v = document.querySelector('#penguin-sledding');
+      v.play();
+      });
 </script>
 </html>
