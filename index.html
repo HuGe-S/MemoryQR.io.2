@@ -6,45 +6,19 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js">
-    </script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src='https://raw.githack.com/cmcfadden/AR.js/master/aframe/build/aframe-ar.js'></script>
-    <script>
-        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-    </script>
     <style>
       .mindar-ui-overlay{display:flex;align-items:center;justify-content:center;position:absolute;left:0;right:0;top:0;bottom:0;background:transparent;z-index:2}.mindar-ui-overlay.hidden{display:none}.mindar-ui-loading .loader{border:16px solid #222;border-top:16px solid #fff;opacity:0.8;border-radius:50%;width:120px;height:120px;animation:spin 2s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.mindar-ui-compatibility .content{background:black;color:white;opacity:0.8;text-align:center;margin:20px;padding:20px;min-height:50vh}@media (min-aspect-ratio: 1 / 1){.mindar-ui-scanning .scanning{}}@media (max-aspect-ratio: 1 / 1){.mindar-ui-scanning .scanning{}}.mindar-ui-scanning .scanning .inner{position:relative;width:100%;height:100%;opacity:0.8;background:linear-gradient(to right, #fff 10px, transparent 10px) 0 0,linear-gradient(to right, #fff 10px, transparent 10px) 0 100%,linear-gradient(to left, #fff 10px, transparent 10px) 100% 0,linear-gradient(to left, #fff 10px, transparent 10px) 100% 100%,linear-gradient(to bottom, #fff 10px, transparent 10px) 0 0,linear-gradient(to bottom, #fff 10px, transparent 10px) 100% 0,linear-gradient(to top, #fff 10px, transparent 10px) 0 100%,linear-gradient(to top, #fff 10px, transparent 10px) 100% 100%;background-repeat:no-repeat;background-size:40px 40px}.mindar-ui-scanning .scanning .inner .scanline{position:absolute;width:100%;height:10px;background:#fff;animation:move 2s linear infinite}@keyframes move{0%,100%{top:0%}50%{top:calc(100% - 10px)}}
     </style>
 </head>
 
   <body>
-    <a-scene vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;'>
+    <a-scene mindar-image="imageTargetSrc: targets_low.mind; uiScanning: no" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;maxDetectionRate: 60;'>
         <a-assets>
             <img id="card" src="Assets\motiontest-0-Enhanced-Animated.gif" />
             <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
         </a-assets>
-        <a-text value="Weisman" gps-entity-place="latitude: 44.97310; longitude: -93.23783;" position="0 320 0"
-        rotation="0 0 0" font="mozillavr" color="#e43e31" look-at="#camera" side="double" align="center"
-        width="400">
-        </a-text>
-
-        <a-text value="Elliot Hall" gps-entity-place="latitude: 44.97691; longitude: -93.23776;" position="0 320 0"
-            rotation="0 0 0" font="mozillavr" color="#e43e31" look-at="#camera" side="double" align="center"
-            width="400">
-        </a-text>
-
-        <a-text value="Andersen Library" gps-entity-place="latitude: 44.97322; longitude: -93.24298;" position="0 420 0"
-            rotation="0 0 0" font="mozillavr" color="#e43e31" look-at="#camera" side="double" align="center"
-            width="200">
-        </a-text>
-        <a-camera id="camera"
-        gps-camera="simulateLatitude: 44.971958; simulateLongitude: -93.2422704; simulateAltitude: 300"
-        rotation-reader far=900000>
-      </a-camera>
-        <a-entity src="Assets\image.png" gps-entity-place="latitude: 44.97322; longitude: -93.24298;" position="0 420 0"
-        rotation="0 0 0" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
+      <a-marker-camera arjs='sourceType: webcam; sourceWidth:1920; sourceHeight:1080; displayWidth: 1920; displayHeight: 1080' position="0 0 0" look-controls="enabled: false" arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5' rotation-reader></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
       
       <!-- <a-entity id="nyancat" geometry="primitive:box" position="1.2 1.5 1.5" material="shader:gif;src:url(Assets\image.png);transparent:true;opacity:.4;" gif=""></a-entity> -->
       <!-- <a-entity id="nyancat" geometry="primitive:box" position="1.2 1.5 1.5" material="shader:gif;src:url(Assets\image.png);transparent:true;opacity:.4;" gif=""></a-entity> -->
