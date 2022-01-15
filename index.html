@@ -72,7 +72,11 @@
           });
         }
       });
-      
+      AFRAME.registerComponent('auto-exit-vr', {
+        init: function () {
+            this.el.sceneEl.exitVR();
+        }
+        });
       AFRAME.registerComponent('ar-shadows', {
         // Swap an object's material to a transparent shadows-only material while
         // in AR mode. Intended for use with a ground plane. The object is also
@@ -104,7 +108,7 @@
   </head>  
   <body>
 
-    <a-scene vr-mode-ui="enabled: false" exitVR>
+    <a-scene vr-mode-ui="enabled: false" auto-exit-vr>
       
       <a-camera position="0 1.2 0"></a-camera>
       
