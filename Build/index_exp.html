@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>AR.JS Demo with Location Simulation and Altitude</title>
+    <script
+        src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js">
+    </script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src='https://raw.githack.com/cmcfadden/AR.js/master/aframe/build/aframe-ar.js'></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    <a-scene vr-mode-ui="enabled: false" embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+
+
+
+        <a-entity  gps-entity-place="latitude:  44.97322; longitude: -93.242270;" position="0 300 0"
+        rotation="0 0 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 30; height: 20; depth: 0.2"></a-entity>
+
+        <a-camera id="camera"
+            gps-camera="simulateLatitude: 44.971958; simulateLongitude: -93.2422704; simulateAltitude: 300"
+            far=900000>
+        </a-camera>
+    </a-scene>
+</body> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hello!</title>
+    <style>
+        /* CSS files add styling rules to your content */
+
+    body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 2em;
+    }
+
+    h1 {
+    font-style: italic;
+    color: #373fff;
+    }
+
+    video-holder {
+    width: 100vw;
+    height: 100vh;
+    }
+
+    video {
+    height: 100vh;
+    }
+    </style>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>  
+  <body> 
+     <a-scene
+     >
+        <a-assets>
+            <video id="feed"></video>
+        </a-assets>
+        <a-plane>
+            <a-plane opacity=".6" width="2" height="1.2" side="double" position="0 3 -6" rotation="0 0 0" color="white">
+                <a-plane width="1" height=".7" side="double" position="0 -0.1 0.1" rotation="0 0 0" color="black">
+                <a-plane width=".8" height=".5" side="double" position="0 0 0.1" rotation="0 0 0" color="white"></a-plane>
+                </a-plane>
+        <!-- backboard          -->
+                <a-cylinder position="0 -.5 0" radius="0.35" height=".1" color="red"> 
+        <!--    hoop      -->
+                <a-cylinder opacity=".8" position="0 -.3 0" radius="0.27" height=".5" color="white"></a-cylinder>
+        <!-- net -->
+                </a-cylinder>
+            </a-plane>
+            <a-sphere position="0 .75 -2" radius=".25" color="orange"></a-sphere>
+        
+    <!-- ball -->
+    <!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
+    <!--       </a-box> -->
+    </a-scene>   
+  </body>
+  <script>
+// Prefer camera resolution nearest to 1280x720.
+var constraints = { audio: false, video: { width: 1280, height: 720 } }; 
+
+navigator.mediaDevices.getUserMedia(constraints)
+.then(function(mediaStream) {
+  var video = document.querySelector('video');
+  video.srcObject = mediaStream;
+  video.onloadedmetadata = function(e) {
+  video.play();
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
+</script>
+</html>
