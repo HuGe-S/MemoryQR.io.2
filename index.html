@@ -105,12 +105,6 @@
   <body>
 
     <a-scene>
-      <a-assets timeout="30000">
-        <!-- Model source: https://sketchfab.com/3d-models/spinosaurus-2135501583704537907645bf723685e7
-             Model author: https://sketchfab.com/VapTor
-             Model license: CC Attribution -->
-        <a-asset-item id="spinosaurus" src="https://cdn.glitch.com/324a5290-5aa7-4efc-92d6-ae0736433b12%2Fspinosaurus.glb" response-type="arraybuffer"></a-asset-item>
-      </a-assets>
       
       <a-camera position="0 1.2 0"></a-camera>
       
@@ -124,7 +118,7 @@
                   animation-mixer
                   shadow="cast: true; receive: false"></a-entity>
       </a-entity>   -->
-      <a-entity src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
+      <a-entity src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2" position="-1 0 -3"></a-entity>
       <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
       <a-light type="directional"
                light="castShadow: true;
