@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -24,16 +24,65 @@
         <a-entity  gps-entity-place="latitude:  44.97322; longitude: -93.242270;" position="0 300 0"
         rotation="0 0 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 30; height: 20; depth: 0.2"></a-entity>
 
-        <!-- <a-entity  gps-entity-place="latitude: 44.97322; longitude: -93.24298;" position="0 300 0"
-        rotation="0 0 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
-        <a-entity  gps-entity-place="latitude: 44.97322; longitude: -93.24298;" position="0 300 0"
-        rotation="0 0 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity>
-        <a-entity  gps-entity-place="latitude: 44.97322; longitude: -93.24298;" position="0 300 0"
-        rotation="0 0 0" src="Assets\image.png" material="shader:flat;src:url(Assets\image.png)" geometry="primitive: box; width: 3; height: 2; depth: 0.2"></a-entity> -->
-
         <a-camera id="camera"
             gps-camera="simulateLatitude: 44.971958; simulateLongitude: -93.2422704; simulateAltitude: 300"
             far=900000>
         </a-camera>
     </a-scene>
-</body>
+</body> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hello!</title>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>  
+  <body>
+    <div id="video-holder">
+      <video autoplay></video>
+    </div>
+      
+     <a-scene
+        renderer="colorManagement: true"
+     >
+      <a-entity camera look-controls="touchEnabled:false;" position="0 1.6 0"></a-entity>
+      <a-plane opacity=".6" width="2" height="1.2" side="double" position="0 3 -6" rotation="0 0 0" color="white">
+        <a-plane width="1" height=".7" side="double" position="0 -0.1 0.1" rotation="0 0 0" color="black">
+          <a-plane width=".8" height=".5" side="double" position="0 0 0.1" rotation="0 0 0" color="white"></a-plane>
+        </a-plane>
+<!-- backboard          -->
+        <a-cylinder position="0 -.5 0" radius="0.35" height=".1" color="red"> 
+<!--    hoop      -->
+          <a-cylinder opacity=".8" position="0 -.3 0" radius="0.27" height=".5" color="white"></a-cylinder>
+<!-- net -->
+        </a-cylinder>
+      </a-plane>
+      <a-sphere position="0 .75 -2" radius=".25" color="orange"></a-sphere>
+<!-- ball -->
+<!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
+<!--       </a-box> -->
+    </a-scene>
+    
+  </body>
+  <script>
+const constraints = {
+  video: {
+    facingMode: "environment",
+  }
+};
+
+const video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
+</script>
+</html>
