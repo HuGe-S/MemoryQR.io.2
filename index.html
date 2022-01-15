@@ -63,9 +63,6 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   </head>  
   <body> 
-    <div id="video-holder">
-        <video autoplay></video>
-    </div>
      <a-scene
      >
         <a-assets>
@@ -84,6 +81,7 @@
                 </a-cylinder>
             </a-plane>
             <a-sphere position="0 .75 -2" radius=".25" color="orange"></a-sphere>
+            <a-sky rotation="0 -90 0" src="#feed" phi-length='180'></a-sky>
         
     <!-- ball -->
     <!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
