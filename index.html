@@ -64,10 +64,13 @@
   </head>  
   <body>
     </div>
-     <video id='#penguin-sledding'></video>
+      
      <a-scene
         renderer="colorManagement: true"
      >
+        <a-assets>
+            <video id="feed"></video>
+        </a-assets>
         <a-plane>
             <a-plane opacity=".6" width="2" height="1.2" side="double" position="0 3 -6" rotation="0 0 0" color="white">
                 <a-plane width="1" height=".7" side="double" position="0 -0.1 0.1" rotation="0 0 0" color="black">
@@ -81,10 +84,7 @@
                 </a-cylinder>
             </a-plane>
             <a-sphere position="0 .75 -2" radius=".25" color="orange"></a-sphere>
-        <a-plane position="0 1.6 -10"
-        color="#ffffff" 
-        material="src:#feed"
-                >
+            <a-sky rotation="0 -90 0" src="#feed"></a-sky>
         
     <!-- ball -->
     <!--       <a-box position="0 0 -6" rotation="0 0 0" width="4" depth="4" height=".1" color="#7BC8A4"> -->
@@ -105,9 +105,5 @@ navigator.mediaDevices.getUserMedia(constraints)
   };
 })
 .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
-window.addEventListener('click', function () {
-      var v = document.querySelector('#penguin-sledding');
-      v.play();
-      });
 </script>
 </html>
